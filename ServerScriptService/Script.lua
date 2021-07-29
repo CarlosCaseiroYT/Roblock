@@ -41,11 +41,11 @@ local function GenerateWorld()
 		chunkInRadius.GetChunk3d().Parent = ChunksFolder
 	end
 	
-	isFirstBuildDone = true
-	
 	for _, player in pairs(Players:GetChildren()) do
 		player:LoadCharacter()
 	end
+	
+	isFirstBuildDone = true
 	
 	Players.CharacterAutoLoads = true
 end
@@ -96,9 +96,9 @@ ReplicatedStorage.PutBlock.OnServerEvent:Connect(
 	end
 		
 	local blockPosition =  Vector3.new(
-		(position.X / Constants.BlockSizeMultiplier) + Constants.BlockSizeMultiplier + 1--[[]] + (args.X or 0),
+		(position.X / Constants.BlockSizeMultiplier) + Constants.BlockSizeMultiplier + 1 + (args.X or 0),
 		(position.Y / Constants.BlockSizeMultiplier) + (args.Y or 0),
-		(position.Z / Constants.BlockSizeMultiplier) + Constants.BlockSizeMultiplier + 1--[[]] + (args.Z or 0))
+		(position.Z / Constants.BlockSizeMultiplier) + Constants.BlockSizeMultiplier + 1 + (args.Z or 0))
 	
 	local block = Block.GetByPosition(world, blockPosition)
 	local lastBlockName = nil

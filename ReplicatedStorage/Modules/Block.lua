@@ -146,7 +146,7 @@ Block.new = function(world, _name, _position, _color)
 			end
 			local function SetBlock3dSelectionBox()
 				local selectionBox = Instance.new("SelectionBox")
-				selectionBox.LineThickness = 0.01
+				selectionBox.LineThickness = 0.04
 				selectionBox.Color3 = Color3.new(0,0,0)
 				selectionBox.Transparency = 0.7
 				selectionBox.Parent = block3d
@@ -184,7 +184,7 @@ Block.new = function(world, _name, _position, _color)
 			if _name then SetAssets() end
 			SetBlock3dName()
 			SetBlock3dFacesImage()
-			--SetBlock3dSelectionBox()
+			SetBlock3dSelectionBox()
 			SetBlock3dSize()
 			SetBlock3dPosition()
 			SetBlock3dAnchored()

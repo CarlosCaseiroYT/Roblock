@@ -10,7 +10,7 @@ Chunk.BuildChunk = function(world, ChunksFolder, x, z)
 			(x + (args.X or 0)).."x"..(z + (args.Z or 0)))
 		if chunk and not chunk.IsTotallyLoaded() then
 			chunk.Load()
-			wait(0.1)
+			--wait(0.1)
 		end
 	end
 	local chunk = world.GetBuildedChunk("Chunk "..x.."x"..z)
@@ -52,9 +52,9 @@ Chunk.new = function(world, ChunksFolder, _position2d)
 	local function _DirtAndGrassNoise(x, z)
 		local maxHeight = Constants.Chunk.Y
 		local minHeight = Constants.Chunk.Y / 2
-		local smooth = 0.02--0.01
-		local cicle = 8--4
-		local persist = 1--0.5
+		local smooth = 0.02
+		local cicle = 8
+		local persist = 1
 		local height = Perlin.lerp(Perlin.inverseLerp(0, 1, 
 			_TerrainNoise(x * smooth, z * smooth, cicle, persist)
 		), minHeight, maxHeight)
@@ -192,7 +192,7 @@ Chunk.new = function(world, ChunksFolder, _position2d)
 							local block = nil
 							local position = ConvertPosition(x, y, z)
 							local tree = {}
-
+							
 							if y == 0 then
 								block = Block.new(world, "Bedrock", position)
 							elseif y < _StoneNoise(position.X, position.Z) then
@@ -219,7 +219,7 @@ Chunk.new = function(world, ChunksFolder, _position2d)
 									_SetBlockToData(block)
 								end
 							end
-                            
+
 							if block then
 								if not block.IsTotallyLoaded() then
 									_totallyLoaded = false
